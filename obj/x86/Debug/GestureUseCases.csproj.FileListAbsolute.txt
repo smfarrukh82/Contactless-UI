@@ -1,0 +1,1 @@
+C:\Users\f.akhtar\LiftGestures\obj\x86\Debug\GestureUseCases.csprojAssemblyReference.cache

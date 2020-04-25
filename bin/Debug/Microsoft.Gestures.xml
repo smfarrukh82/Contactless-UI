@@ -1,0 +1,1359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Gestures</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.Gestures.Skeleton.Vector3.AngleTo(Microsoft.Gestures.Skeleton.Vector3)">
+            <returns>Angle between this and <param name="other"/> in degrees</returns>
+        </member>
+        <member name="T:Microsoft.Gestures.PoseConstraint">
+            <summary>
+            An abstract base class representing a pose constraint.
+            </summary>
+            
+            <remarks>
+            A <see cref="T:Microsoft.Gestures.PoseConstraint"/> is the basic building block of a <see cref="T:Microsoft.Gestures.HandPose"/> (which is essentially a coherent collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects). A 
+            <see cref="T:Microsoft.Gestures.PoseConstraint"/> represents a certain feature of the hand. This can be either a predicate describing the state of one or more hand parts (e.g.: "the palm of the right hand 
+            is facing forward", "the index, middle, ring and pinky fingers are folded") - see <seealso cref="T:Microsoft.Gestures.HandPartPose`1"/>, or a predicate describing the relative state of sets of 
+            fingers (e.g.: "the index and middle fingers are above the thumb finger", "the thumb finger is touching the middle and ring fingers") - see 
+            <seealso cref="T:Microsoft.Gestures.FingersRelation`1"/>.
+            </remarks>
+            
+        </member>
+        <member name="T:Microsoft.Gestures.IdleGestureSegment">
+            <summary>
+            The idle state which every gesture starts with
+            </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.Finger">
+            <summary>
+            Enumerates the fingers, can be used to specify a <see cref="T:Microsoft.Gestures.FingersContext"/> which can then be used to define <see cref="T:Microsoft.Gestures.FingerPose"/>, <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/>
+            and <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Finger.Thumb">
+            <summary> Thumb finger </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Finger.Index">
+            <summary> Index finger </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Finger.Middle">
+            <summary> Middle finger </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Finger.Ring">
+            <summary> Ring finger </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Finger.Pinky">
+            <summary> Pinky finger </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.Hand">
+            <summary>
+            Enumerates the hands, can be used to specify handedness for a <see cref="T:Microsoft.Gestures.PalmPose"/> constraint.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Hand.RightHand">
+            <summary> Right hand </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Hand.LeftHand">
+            <summary> Left hand </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.FingerFlexion">
+            <summary>
+            Specifies the flexion state of a finger, can be used to define <see cref="T:Microsoft.Gestures.FingerPose"/> constraints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.FingerFlexion.Undefined">
+            <summary> Finger flexion is unconstrained </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.FingerFlexion.OpenStretched">
+            <summary> Finger is open and stretched </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.FingerFlexion.Open">
+            <summary> Finger is open or stretched </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.FingerFlexion.Folded">
+            <summary> Finger is folded or tucked </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.FingerFlexion.FoldedTucked">
+            <summary> Finger is folded and tucked </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.RelativePlacement">
+            <summary>
+            Specifies the spatial placement relation between two finger contexts, can be used to define <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativePlacement.Below">
+            <summary> First finger context is below the second finger context </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativePlacement.Above">
+            <summary> First finger context is above the second finger context </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativePlacement.InFront">
+            <summary> First finger context is in front of the second finger context </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativePlacement.Behind">
+            <summary> First finger context is behind the second finger context </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativePlacement.Right">
+            <summary> First finger context is on the right of the second finger context </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativePlacement.Left">
+            <summary> First finger context is on the left of the second finger context </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.RelativeDistance">
+            <summary>
+            Specifies the distance between two finger contexts, can be used to define <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativeDistance.NotTouching">
+            <summary> First finger context is separated from the second finger context </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.RelativeDistance.Touching">
+            <summary> First finger context is touching the second finger context </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.PoseDirection">
+            <summary>
+            Specifies an absolute direction in space, can be used in the definition of <see cref="T:Microsoft.Gestures.PalmPose"/> and <see cref="T:Microsoft.Gestures.FingerPose"/> constraints.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Undefined">
+            <summary> Direction is unconstrained </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Down">
+            <summary> Direction is facing towards the floor</summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Up">
+            <summary> Direction is facing towards the ceiling</summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Forward">
+            <summary> Direction is facing towards the camera</summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Backward">
+            <summary> Direction is facing away from the camera</summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Right">
+            <summary> Direction is facing right hand side of the user</summary>
+        </member>
+        <member name="F:Microsoft.Gestures.PoseDirection.Left">
+            <summary> Direction is facing left hand side of the user</summary>
+        </member>
+        <member name="T:Microsoft.Gestures.MotionSpeed">
+            <summary>
+            [Reserved for future use] Specifies the speed with which a <see cref="T:Microsoft.Gestures.PalmMotion"/> or a <see cref="T:Microsoft.Gestures.FingerMotion"/> is executed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionSpeed.Normal">
+            <summary> normal speed </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionSpeed.Abrupt">
+            <summary> abrupt or fast speed </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.MotionSize">
+            <summary> 
+            [Reserved for future use] Specifies the distance which a <see cref="T:Microsoft.Gestures.PalmMotion"/> or a <see cref="T:Microsoft.Gestures.FingerMotion"/> spans. 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionSize.Normal">
+            <summary> normal distance </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionSize.Large">
+            <summary> long distance </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.MotionPlane">
+            <summary>
+            Specifies in which plane a <see cref="T:Microsoft.Gestures.MotionSegment"/> is executed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionPlane.Horizontal">
+            <summary> The horizontal plain - parallel to the desk in a desktop setup </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionPlane.Vertical">
+            <summary> The vertical plain - parallel to the monitor in a desktop setup </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.MotionPlane.Depth">
+            <summary> The depth plain - this is the vertical plane between the user and the monitor in a desktop setup </summary>
+        </member>
+        <member name="T:Microsoft.Gestures.FingerPose">
+             <summary>
+             Represents a constraint describing the flexion and pointing direction of a subset of fingers.
+             </summary>
+             
+             <remarks>
+             
+             <para>A <see cref="T:Microsoft.Gestures.FingerPose"/> constraint refers to a set of fingers, defined by the <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/> property, it specifies the direction of
+             these fingers, as defined by the <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> property, and their flexion state (the degree to which a fingers is open or folded), as defined
+             by the <see cref="P:Microsoft.Gestures.FingerPose.Flexion"/> property. Note that when the <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> value is set to <see cref="F:Microsoft.Gestures.PoseDirection.Undefined"/>, the constraint
+             implies no restriction of the direction for fingers mentioned in <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/>.</para>
+             
+             <para>The following code defines a <see cref="T:Microsoft.Gestures.HandPose"/> with a single <see cref="T:Microsoft.Gestures.FingerPose"/> constraint that is actualized when both the index and thumb fingers are open and 
+             pointing forward:</para>
+             
+             <code>
+             var myPose = new HandPose("MyPose", new FingerPose(new[] {Finger.Index, Finger.Thumb}, FingerFlexion.Open, PoseDirection.Forward));
+             </code>
+            
+             The <see cref="T:Microsoft.Gestures.FingerPose"/> constraint in the example above restricts the pose of only the index and thumb fingers. As soon as the camera sees a hand whose index and thumb fingers 
+             are open and pointing forward, the encompassing <see cref="T:Microsoft.Gestures.Gesture"/> object's state-machine can advance to <c>myPose</c>, regardless of the state of the other fingers. To generalize, 
+             all the fingers which are not participating in the <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/> of a <see cref="T:Microsoft.Gestures.FingerPose"/> are free to assume any state of flexion and point in 
+             any direction (unless constrained by a different <see cref="T:Microsoft.Gestures.FingerPose"/> instance). 
+             
+             <para>Note that specifying a <see cref="T:Microsoft.Gestures.FingerPose"/> constraint with a <see cref="P:Microsoft.Gestures.FingerPose.Flexion"/> value of <see cref="F:Microsoft.Gestures.FingerFlexion.Folded"/> (or <see cref="F:Microsoft.Gestures.FingerFlexion.FoldedTucked"/>)
+             and in parallel a <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> value other than <see cref="F:Microsoft.Gestures.PoseDirection.Undefined"/> is ill-advised. This is because a folded finger cannot 
+             be meaningfully said to point in any particular direction. In addition, the tips of folded fingers are very likely to be hidden from the camera, making the estimated values of their 
+             directions unreliable.</para>
+             
+             <para>Note that <see cref="T:Microsoft.Gestures.FingerPose"/> instances are mutable until the containing <see cref="T:Microsoft.Gestures.Gesture"/> object is registered with the gestures runtime, at which point it becomes 
+             frozen and cannot be modified any longer. </para>
+             
+             </remarks>
+        </member>
+        <member name="P:Microsoft.Gestures.FingerPose.Flexion">
+            <summary>
+            Specifies the <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) which will be associated with the fingers indicated by 
+            <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.FingerPose"/> constraint. In order to obtain a meaningful constraint, the values of <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/>, 
+            <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> and\or <see cref="P:Microsoft.Gestures.FingerPose.Flexion"/> would have to be set manually.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor(Microsoft.Gestures.Finger,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires <paramref name="finger"/> to be aligned with <paramref name="direction"/>.
+            </summary>
+            <param name="finger">The <paramref name="finger"/> participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that <paramref name="finger"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor(Microsoft.Gestures.Finger,Microsoft.Gestures.FingerFlexion,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires <paramref name="finger"/> to attain the specified <paramref name="flexion"/> state and to be aligned with 
+            <paramref name="direction"/>.
+            </summary>
+            <param name="finger">The <paramref name="finger"/> participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="flexion">The <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) imposed on <paramref name="finger"/>.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that <paramref name="finger"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires each of the given <paramref name="fingers"/> to be aligned with <paramref name="direction"/>.
+            </summary>
+            <param name="fingers">An enumeration of all the fingers which will participate in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that each of the <paramref name="fingers"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.FingerFlexion,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires each of the given <paramref name="fingers"/> to attain the specified <paramref name="flexion"/> state and to be 
+            aligned with the given <paramref name="direction"/>.
+            </summary>
+            <param name="fingers">An enumeration of all the fingers which will participate in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="flexion">The <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) imposed on each of the given <paramref name="fingers"/>.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that each of the <paramref name="fingers"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor(Microsoft.Gestures.FingersContext,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires the fingers indicated by <paramref name="fingersContext"/> to be aligned with <paramref name="direction"/>. When 
+            an <see cref="T:Microsoft.Gestures.AnyFingerContext"/> is passed for the <paramref name="fingersContext"/> argument, the resulting constraint will require at least one finger mentioned in 
+            <paramref name="fingersContext"/> to be aligned with <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            This syntax is particularly useful to specify a constraint which can be satisfied by any subset of a given set of fingers, using <see cref="T:Microsoft.Gestures.AnyFingerContext"/>. For example:
+            <code>
+            // the following pose will be triggered when at least one of the thumb, index or middle fingers is pointing down
+            var myPose = new HandPose("MyPose", new FingerPose(new AnyFingerContext(new[] {Finger.Thumb, Finger.Index, Finger.Middle}, PoseDirection.Down)));
+            </code>
+            </remarks>
+            <param name="fingersContext">Specifies the <see cref="T:Microsoft.Gestures.FingersContext"/> of the fingers participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that is required of the fingers indicated by <paramref name="fingersContext"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.#ctor(Microsoft.Gestures.FingersContext,Microsoft.Gestures.FingerFlexion,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires the fingers indicated by <paramref name="fingersContext"/> to attain the specified <paramref name="flexion"/> 
+            state and to be aligned with the given <paramref name="direction"/>. When an <see cref="T:Microsoft.Gestures.AnyFingerContext"/> is passed for the <paramref name="fingersContext"/> argument, the 
+            resulting constraint will require least one finger mentioned in <paramref name="fingersContext"/> to comply with <paramref name="flexion"/> and <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            This syntax is particularly useful to specify a constraint which can be satisfied by any subset of a given set of fingers, using <see cref="T:Microsoft.Gestures.AnyFingerContext"/>. For example:
+            <code>
+            // the following pose will be triggered when at least one of the thumb, index or middle fingers is folded
+            var myPose = new HandPose("MyPose", new FingerPose(new AnyFingerContext(new[] {Finger.Thumb, Finger.Index, Finger.Middle}, FingerFlexion.Folded)));
+            </code>
+            </remarks>
+            <param name="fingersContext">Specifies the <see cref="T:Microsoft.Gestures.FingersContext"/> of the fingers participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="flexion">The <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) that fingers indicated by <paramref name="fingersContext"/> need to 
+            comply with.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that is required of the fingers indicated by <paramref name="fingersContext"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPose.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</returns>
+        </member>
+        <member name="T:Microsoft.Gestures.FingerPoseListExtension">
+            <summary>
+            Augments <see cref="T:System.Collections.Generic.ICollection`1"/> with extension methods that are a particularly useful shorthand for adding <see cref="T:Microsoft.Gestures.FingerPose"/> constraints to the
+            <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> list of an existing <see cref="T:Microsoft.Gestures.HandPose"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.FingersContext,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires the fingers indicated by
+            <paramref name="fingersContext"/> to be aligned with <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when at least one of the thumb, index or middle fingers is pointing right
+            handPose.PoseConstraints.Add(new AnyFingersContext(new[] {Finger.Thumb, Finger.Index, Finger.Middle}), PoseDirection.Right);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingersContext">Specifies the <see cref="T:Microsoft.Gestures.FingersContext"/> of the fingers participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that is required of the fingers indicated by <paramref name="fingersContext"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Finger,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires <paramref name="finger"/> to be aligned with 
+            <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the index finger is pointing up
+            handPose.PoseConstraints.Add(Finger.Index, PoseDirection.Up); 
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="finger">The <see cref="T:Microsoft.Gestures.Finger"/> participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> <paramref name="finger"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires each of the <paramref name="fingers"/> to be aligned 
+            with <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the thumb, index and middle fingers are all pointing left
+            handPose.PoseConstraints.Add(new[] {Finger.Thumb, Finger.Index, Finger.Middle}, PoseDirection.Left);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingers">An enumeration of all the fingers that will participate in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> each of the <paramref name="fingers"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.FingersContext,Microsoft.Gestures.FingerFlexion,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires the fingers indicated by 
+            <paramref name="fingersContext"/> to attain the specified <paramref name="flexion"/> state and to be aligned with the given <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when at least one of the thumb, index and middle fingers is folded
+            handPose.PoseConstraints.Add(new AnyFingerContext(new[] {Finger.Thumb, Finger.Index, Finger.Middle}), FingerFlexion.Folded);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingersContext">Specifies the <see cref="T:Microsoft.Gestures.FingersContext"/> of the fingers participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="flexion">The <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) imposed on the fingers indicated by <paramref name="fingersContext"/>.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> required of the fingers indicated by <paramref name="fingersContext"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Finger,Microsoft.Gestures.FingerFlexion,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires <paramref name="finger"/> to attain the specified 
+            <paramref name="flexion"/> state and be aligned with <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the index finger is open and pointing backward
+            handPose.PoseConstraints.Add(Finger.Index, FingerFlexion.Open, PoseDirection.Backward); 
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="finger">The <paramref name="finger"/> participating in the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="flexion">The <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) imposed on <paramref name="finger"/>.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> <paramref name="finger"/> is required to be aligned with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingerPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.FingerFlexion,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint which requires each of the <paramref name="fingers"/> to attain 
+            the specified <paramref name="flexion"/> state and to be aligned with the given <paramref name="direction"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the thumb, index and middle fingers are all open and pointing down
+            handPose.PoseConstraints.Add(new[] {Finger.Thumb, Finger.Index, Finger.Middle}, FingerFlexion.Open, PoseDirection.Down);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingers">An enumeration of all the fingers which will participate in the new <see cref="T:Microsoft.Gestures.FingerPose"/> constraint.</param>
+            <param name="flexion">The <see cref="T:Microsoft.Gestures.FingerFlexion"/> state (the degree to which a finger is open or folded) imposed on each of <paramref name="fingers"/>.</param>
+            <param name="direction">The <see cref="T:Microsoft.Gestures.PoseDirection"/> that each of <paramref name="fingers"/> is required to be aligned with.</param>
+        </member>
+        <member name="T:Microsoft.Gestures.FingertipPlacementRelation">
+            <summary>
+            Represents a constraint describing the relative placement of fingers.
+            </summary>
+            
+            <remarks>
+            
+            <para>The <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint can be used to indicate the state of <see cref="T:Microsoft.Gestures.RelativePlacement"/> between fingertips of different fingers. For example, 
+            to specify a <see cref="T:Microsoft.Gestures.HandPose"/> which will be triggered when the user's index fingertip is placed above the user's thumb fingertip, use the following the following syntax:</para>
+            
+            <code>
+            var indexAboveThumbPose = new HandPose("IndexAboveThumb", new FingertipPlacementRelation(Finger.Index, RelativePlacement.Above, Finger.Thumb));
+            </code>
+            
+            <para>A <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint imposes the <see cref="P:Microsoft.Gestures.FingertipPlacementRelation.PlacementRelation"/> relation between the fingers of 
+            <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> and the fingers of <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/>. Note that the <see cref="T:Microsoft.Gestures.RelativePlacement"/> 
+            relation is not symmetric. This means that if the values of <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> and <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/> were 
+            to be swapped, the meaning of the entire <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint would be flipped.</para>
+            
+            <para>Note that <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> instances are mutable until the containing <see cref="T:Microsoft.Gestures.Gesture"/> object is registered with the gestures runtime, at which 
+            point it becomes frozen and cannot be modified any longer. </para>
+            
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Gestures.FingertipPlacementRelation.PlacementRelation">
+            <summary>
+            Specifies the relation this <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> imposes between the fingers indicated by <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> and the fingers
+            indicated by <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelation.#ctor">
+            <summary>
+            Creates a blank instance of <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/>. In order to obtain a meaningful constraint, the values of <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/>,
+            <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/> and <see cref="P:Microsoft.Gestures.FingertipPlacementRelation.PlacementRelation"/> would have to be set manually.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelation.#ctor(Microsoft.Gestures.FingersContext,Microsoft.Gestures.RelativePlacement,Microsoft.Gestures.FingersContext)">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing the <paramref name="placementRelation"/> relation between the fingers indicated by
+            <paramref name="context"/> and the fingers indicated by <paramref name="otherContext"/>.
+            </summary>
+            <param name="context">The first <see cref="T:Microsoft.Gestures.FingersContext"/> participating in this constraint.</param>
+            <param name="placementRelation">The relation that this <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> will impose between <paramref name="context"/> and <paramref name="otherContext"/>.</param>
+            <param name="otherContext">The second <see cref="T:Microsoft.Gestures.FingersContext"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelation.#ctor(Microsoft.Gestures.Finger,Microsoft.Gestures.RelativePlacement,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing the <paramref name="placementRelation"/> relation between <paramref name="finger"/> and
+            <paramref name="otherFinger"/>.
+            </summary>
+            <param name="finger">The first <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+            <param name="placementRelation">The relation that this <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> will impose between <paramref name="finger"/> and <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">The second <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelation.#ctor(Microsoft.Gestures.Finger,Microsoft.Gestures.RelativePlacement,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing the <paramref name="placementRelation"/> relation between <paramref name="finger"/> and
+            each of the <paramref name="otherFingers"/>.
+            </summary>
+            <param name="finger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> will impose between <paramref name="finger"/> and <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">The new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose the <paramref name="placementRelation"/> relation between <paramref name="finger"/>
+            and all the fingers enumerated by <paramref name="otherFingers"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelation.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativePlacement,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing the <paramref name="placementRelation"/> relation between each of the
+            <paramref name="fingers"/> and <paramref name="otherFinger"/>.
+            </summary>
+            <param name="fingers">All fingers enumerated here will be required to comply to the <paramref name="placementRelation"/> relation with respect to <paramref name="otherFinger"/>.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> will impose between <paramref name="fingers"/> and <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelation.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativePlacement,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing the <paramref name="placementRelation"/> relation between each of the 
+            <paramref name="fingers"/> and each of the <paramref name="otherFingers"/>.
+            </summary>
+            <param name="fingers">The first set of fingers participating in the constraint.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> will impose between <paramref name="fingers"/> and <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">The second set of fingers participating in this constraint.</param>
+        </member>
+        <member name="T:Microsoft.Gestures.FingertipPlacementRelationListExtension">
+            <summary>
+            Augments <see cref="T:System.Collections.Generic.ICollection`1"/> with extension methods that are a particularly useful shorthand for adding <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraints to
+            the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> list of an existing <see cref="T:Microsoft.Gestures.HandPose"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.FingersContext,Microsoft.Gestures.RelativePlacement,Microsoft.Gestures.FingersContext)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing <paramref name="placementRelation"/> between 
+            the fingers in <paramref name="context"/> and the fingers in <paramref name="otherContext"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when either the index or the middle finger is right of the thumb
+            handPose.PoseConstraints.Add(new AnyFingersContext(new[] {Finger.Index, Finger.Middle}), RelativePlacement.Right, new SingleFingerContext(Finger.Thumb));
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="context">The first <see cref="T:Microsoft.Gestures.FingersContext"/> participating in the <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose between <paramref name="context"/> and 
+            <paramref name="otherContext"/>.</param>
+            <param name="otherContext">The second <see cref="T:Microsoft.Gestures.FingersContext"/> participating in the <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Finger,Microsoft.Gestures.RelativePlacement,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing <paramref name="placementRelation"/>
+            between <paramref name="finger"/> and <paramref name="otherFinger"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the middle fingertip is above the thumb fingertip
+            handPose.PoseConstraints.Add(Finger.Middle, RelativePlacement.Below, Finger.Thumb);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="finger">The first <see cref="T:Microsoft.Gestures.Finger"/> participating in the <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose between <paramref name="finger"/> and 
+            <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">The second <see cref="T:Microsoft.Gestures.Finger"/> participating in the <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Finger,Microsoft.Gestures.RelativePlacement,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing <paramref name="placementRelation"/>
+            between <paramref name="finger"/> and each of the <paramref name="otherFingers"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the thumb is behind both index and middle fingers
+            handPose.PoseConstraints.Add(Finger.Thumb, RelativePlacement.Behind, new[] {Finger.Middle, Finger.Index}); 
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="finger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose between <paramref name="finger"/> and 
+            each of <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">The new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose the <paramref name="placementRelation"/> relation between <paramref name="finger"/>
+            and all the fingers enumerated by <paramref name="otherFingers"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativePlacement,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing <paramref name="placementRelation"/>
+            between each finger in <paramref name="fingers"/> and <paramref name="otherFinger"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the ring and pinky fingers are right of the thumb finger
+            handPose.PoseConstraints.Add(new[] {Finger.Ring, Finger.Pinky}, RelativeDistance.Right, Finger.Thumb);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingers">>All fingers enumerated here will be required to comply to the <paramref name="placementRelation"/> relation with respect to <paramref name="otherFinger"/>.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose between each of <paramref name="fingers"/> and 
+            <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipPlacementRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativePlacement,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint, imposing <paramref name="placementRelation"/>
+            between each finger in <paramref name="fingers"/> and each finger in <paramref name="otherFingers"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the index and index fingers are above both the thumb and ring fingers
+            handPose.PoseConstraints.Add(new[] {Finger.Index, Finger.Middle}, RelativePlacement.Above, new[] {Finger.Thumb, Finger.Ring}); 
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingers">The first set of fingers participating in the <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint.</param>
+            <param name="placementRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint will impose between each finger in <paramref name="fingers"/> and 
+            each finger in <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">The second set of fingers participating in the <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> constraint.</param>
+        </member>
+        <member name="T:Microsoft.Gestures.FingertipDistanceRelation">
+            <summary>
+            Represents a constraint describing the distance between fingers.
+            </summary>
+            
+            <remarks>
+            
+            <para>The <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint can be used to indicate whether certain fingers are <see cref="F:Microsoft.Gestures.RelativeDistance.Touching"/> or 
+            <see cref="F:Microsoft.Gestures.RelativeDistance.NotTouching"/> each other. For example, to specify a <see cref="T:Microsoft.Gestures.HandPose"/> which will be triggered when the user's thumb is pinching the
+            user's index finger, refer to the following snippet:</para>
+            
+            <code>
+            var pinchPose = new HandPose("Pinch", new FingertipDistanceRelation(Finger.Index, RelativeDistance.Touching, Finger.Thumb)); // the index and thumb tips are touching
+            </code>
+            
+            <para>It is possible to omit the <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/> of the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint (by setting its value to <c>null</c>).
+            Defining a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint this way would imply that the fingers mentioned in <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> are required to 
+            attain the specified <see cref="P:Microsoft.Gestures.FingertipDistanceRelation.DistanceRelation"/> with respect to themselves. To illustrate this, consider the following code snippet, utilizing the different types of 
+            <see cref="T:Microsoft.Gestures.FingersContext"/>:
+            </para>
+            
+            <code>
+            var allTouchAll = new FingertipDistanceRelation(new AllFingersContext(new[] {Finger.Thumb, Finger.Index, Finger.Middle})); // all possible finger pairs are expected to be touching
+            var anyTouchAny = new FingerTipDistanceRelation(new AnyFingersContext(new[] {Finger.Thumb, Finger.Index, Finger.Middle})); // at least one of the possible finger pairs is expected to be touching
+            </code>
+            
+            <para>Note that <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> instances are mutable until the containing <see cref="T:Microsoft.Gestures.Gesture"/> object is registered with the gestures runtime, at which 
+            point it becomes frozen and cannot be modified any longer. </para>
+            
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Gestures.FingertipDistanceRelation.DistanceRelation">
+            <summary>
+            Specifies the relation this <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> imposes between the fingers indicated by <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> and the fingers
+            indicated by <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelation.#ctor">
+            <summary>
+            Creates a blank instance of <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/>. In order to obtain a meaningful constraint, the values of <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/>,
+            <see cref="P:Microsoft.Gestures.FingertipDistanceRelation.DistanceRelation"/> and optionally <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/> would have to be set manually.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelation.#ctor(Microsoft.Gestures.FingersContext,Microsoft.Gestures.RelativeDistance,Microsoft.Gestures.FingersContext)">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing the <paramref name="distanceRelation"/> relation between the fingers indicated by
+            <paramref name="context"/> and the fingers indicated by <paramref name="otherContext"/>.
+            </summary>
+            <param name="context">The first <see cref="T:Microsoft.Gestures.FingersContext"/> participating in this constraint.</param>
+            <param name="distanceRelation">The relation that this <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> will impose between <paramref name="context"/> and <paramref name="otherContext"/>.
+            </param>
+            <param name="otherContext">The second <see cref="T:Microsoft.Gestures.FingersContext"/> participating in this constraint. If this parameter is null, <paramref name="context"/> will be used in its
+            place and <paramref name="distanceRelation"/> will be applied between the fingers of <paramref name="context"/> and themselves (for more information on finger context types,
+            refer to <seealso cref="T:Microsoft.Gestures.FingersContext"/> documentation).</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelation.#ctor(Microsoft.Gestures.Finger,Microsoft.Gestures.RelativeDistance,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing the <paramref name="distanceRelation"/> relation between <paramref name="finger"/> and
+            <paramref name="otherFinger"/>.
+            </summary>
+            <param name="finger">The first <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+            <param name="distanceRelation">The relation that this <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> will impose between <paramref name="finger"/> and <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">The second <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelation.#ctor(Microsoft.Gestures.Finger,Microsoft.Gestures.RelativeDistance,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing the <paramref name="distanceRelation"/> relation between <paramref name="finger"/> and
+            each of the <paramref name="otherFingers"/>.
+            </summary>
+            <param name="finger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> will impose between <paramref name="finger"/> and <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">All fingers enumerated here will be required to comply to the <paramref name="distanceRelation"/> relation with respect to <paramref name="finger"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelation.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativeDistance,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing the <paramref name="distanceRelation"/> relation between each of 
+            the <paramref name="fingers"/> and <paramref name="otherFinger"/>.
+            </summary>
+            <param name="fingers">All fingers enumerated here will be required to comply to the <paramref name="distanceRelation"/> relation with respect to <paramref name="otherFinger"/>.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> will impose between <paramref name="fingers"/> and <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelation.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativeDistance,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates a new instance of a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing the <paramref name="distanceRelation"/> relation between each of the 
+            <paramref name="fingers"/> and each of the <paramref name="otherFingers"/>.
+            </summary>
+            <param name="fingers">The first set of fingers participating in the constraint.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> will impose between <paramref name="fingers"/> and <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">The second set of fingers participating in this constraint. If this parameter is null, <paramref name="distanceRelation"/> relation will be imposed on 
+            all pairs of fingers from within <paramref name="fingers"/>.</param>
+        </member>
+        <member name="T:Microsoft.Gestures.FingertipDistanceRelationListExtension">
+            <summary>
+            Augments <see cref="T:System.Collections.Generic.ICollection`1"/> with extension methods that are a particularly useful shorthand for adding <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraints to
+            the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> list of an existing <see cref="T:Microsoft.Gestures.HandPose"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.FingersContext,Microsoft.Gestures.RelativeDistance,Microsoft.Gestures.FingersContext)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing <paramref name="distanceRelation"/> between 
+            the fingers in <paramref name="context"/> and the fingers in <paramref name="otherContext"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when either of the non-thumb fingers touches the thumb
+            handPose.PoseConstraints.Add(new AnyFingersContext(), RelativeDistance.Touching, new SingleFingerContext(thumb));
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="context">The first <see cref="T:Microsoft.Gestures.FingersContext"/> participating in the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint will impose between <paramref name="context"/> and 
+            <paramref name="otherContext"/>.</param>
+            <param name="otherContext">The second <see cref="T:Microsoft.Gestures.FingersContext"/> participating in the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> new constraint. If this parameter is null, 
+            <paramref name="context"/> will be used in its place and <paramref name="distanceRelation"/> will be applied between the fingers of <paramref name="context"/> and themselves 
+            (for more information on finger context types, refer to <seealso cref="T:Microsoft.Gestures.FingersContext"/> documentation).</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Finger,Microsoft.Gestures.RelativeDistance,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing <paramref name="distanceRelation"/>
+            between <paramref name="finger"/> and <paramref name="otherFinger"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied whenever the index fingertip is not touching the middle fingertip
+            handPose.PoseConstraints.Add(Finger.Index, RelativeDistance.NotTouching, Finger.Middle);
+            </code>
+            </remarks>
+            /// <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="finger">The first <see cref="T:Microsoft.Gestures.Finger"/> participating in the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint will impose between <paramref name="finger"/> and 
+            <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">The second <see cref="T:Microsoft.Gestures.Finger"/> participating in the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Finger,Microsoft.Gestures.RelativeDistance,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing <paramref name="distanceRelation"/>
+            between <paramref name="finger"/> and each of the <paramref name="otherFingers"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the thumb is not touching both ring and pinky fingers
+            handPose.PoseConstraints.Add(Finger.Thumb, RelativeDistance.NotTouching, new[] {Finger.Ring, Finger.Pinky});
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="finger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint will impose between <paramref name="finger"/> and 
+            each of <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">All fingers enumerated here will be required to comply to the <paramref name="distanceRelation"/> with respect to <paramref name="finger"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativeDistance,Microsoft.Gestures.Finger)">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing <paramref name="distanceRelation"/>
+            between each finger in <paramref name="fingers"/> and <paramref name="otherFinger"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when the thumb is not touching both ring and pinky fingers
+            handPose.PoseConstraints.Add(new[] {Finger.Ring, Finger.Pinky}, RelativeDistance.NotTouching, Finger.Thumb);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingers">>All fingers enumerated here will be required to comply to the <paramref name="distanceRelation"/> with respect to <paramref name="otherFinger"/>.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint will impose between each of <paramref name="fingers"/> and 
+            <paramref name="otherFinger"/>.</param>
+            <param name="otherFinger">A <see cref="T:Microsoft.Gestures.Finger"/> participating in this constraint.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.FingertipDistanceRelationListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger},Microsoft.Gestures.RelativeDistance,System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})">
+            <summary>
+            Creates and adds to the <paramref name="poseConstraints"/> collection a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint, imposing <paramref name="distanceRelation"/>
+            between each finger in <paramref name="fingers"/> and each finger in <paramref name="otherFingers"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            // will be satisfied when neither thumb nor index fingers are touching any of the middle, ring and pinky fingers
+            handPose.PoseConstraints.Add(new[] {Finger.Thumb, Finger.Index}, RelativeDistance.NotTouching, new[] {Finger.Middle, Finger.Ring, Finger.Pinky}); 
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> property.</param>
+            <param name="fingers">The first set of fingers participating in the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint.</param>
+            <param name="distanceRelation">The relation that the new <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint will impose between each finger in <paramref name="fingers"/> and 
+            each finger in <paramref name="otherFingers"/>.</param>
+            <param name="otherFingers">The second set of fingers participating in the <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> constraint. If this parameter is null, 
+            <paramref name="distanceRelation"/> relation will be imposed on all pairs of fingers from within the <paramref name="fingers"/> collection.</param>
+        </member>
+        <member name="T:Microsoft.Gestures.Gesture">
+            <summary>
+            Represents a <see cref="T:Microsoft.Gestures.Gesture"/> as a state-machine of <see cref="T:Microsoft.Gestures.GestureSegment"/>s.
+            </summary>
+            
+            <remarks>
+            
+            <para>
+            A <see cref="T:Microsoft.Gestures.Gesture"/> is modeled as a state-machine and implemented as a directed graph whose nodes are represented as instances of <see cref="T:Microsoft.Gestures.GestureSegment"/> and whose edges are
+            represented by a single instance of <see cref="T:Microsoft.Gestures.GestureSegmentConnections"/>. In other words, <see cref="T:Microsoft.Gestures.GestureSegment"/>s represent states in the state-machine associated with this 
+            <see cref="T:Microsoft.Gestures.Gesture"/> (thus <see cref="T:Microsoft.Gestures.GestureSegment"/> and "state" are used interchangeably) while <see cref="T:Microsoft.Gestures.GestureSegmentConnections"/> represent the possible transitions between 
+            the states of this <see cref="T:Microsoft.Gestures.Gesture"/>. <see cref="T:Microsoft.Gestures.GestureSegment"/> object type will usually be either <see cref="T:Microsoft.Gestures.HandPose"/> or <see cref="T:Microsoft.Gestures.HandMotion"/>.
+            </para>
+            
+            <para>
+            In run-time, the state-machine is initialized to the <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> state. When a descendant <see cref="T:Microsoft.Gestures.GestureSegment"/> of the current <see cref="T:Microsoft.Gestures.GestureSegment"/> is detected, the 
+            state-machine will advance its current state to point at the corresponding <see cref="T:Microsoft.Gestures.GestureSegment"/>. In order to trigger a <see cref="T:Microsoft.Gestures.Gesture"/> the user is required 
+            to execute a series of <see cref="T:Microsoft.Gestures.HandPose"/>s and <see cref="T:Microsoft.Gestures.HandMotion"/>s that correspond to a path in the state machine which starts and ends with an <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/>. 
+            Such a path is called a "triggering path". When a triggering path is detected, the <see cref="E:Microsoft.Gestures.GestureSegment.Triggered"/> event of the <see cref="T:Microsoft.Gestures.Gesture"/> will be raised. 
+            The client code can subscribe to the <see cref="E:Microsoft.Gestures.GestureSegment.Triggered"/> event and respond to the <see cref="T:Microsoft.Gestures.Gesture"/> detection.
+            </para>
+            
+            <para>
+            When the user executes a complete gesture successfully, or starts advancing along a triggering path and fails to complete the gesture correctly, the state-machine will reset itself 
+            (and start again from <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/>). The state-machine reset is marked by raising of the <see cref="E:Microsoft.Gestures.Gesture.IdleTriggered"/> event.
+            </para>
+            
+            <para>
+            A <see cref="T:Microsoft.Gestures.Gesture"/> instance is mutable until it is registered with the gestures runtime, at which point it becomes frozen and cannot be modified any longer.
+            </para>
+            
+            <para>
+            Note that a <see cref="T:Microsoft.Gestures.Gesture"/> is itself a <see cref="T:Microsoft.Gestures.GestureSegment"/> and thus <see cref="T:Microsoft.Gestures.Gesture"/> instances can be nested.
+            </para>
+            
+            </remarks>   
+        </member>
+        <member name="P:Microsoft.Gestures.Gesture.IdleGestureSegment">
+            <summary>
+            <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> is the initial state of the state-machine representation of this <see cref="T:Microsoft.Gestures.Gesture"/> instance. Every path in the state machine that
+            starts and ends with the <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> is called a triggering path and corresponds to a legitimate execution of this <see cref="T:Microsoft.Gestures.Gesture"/> instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.Gesture.Segments">
+            <summary>
+            The list of all the <see cref="T:Microsoft.Gestures.GestureSegment"/>s comprising the state-machine representation of this <see cref="T:Microsoft.Gestures.Gesture"/> instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.Gesture.SegmentsConnections">
+            <summary>
+            Represents all the edges connecting states in the state-machine representation of this <see cref="T:Microsoft.Gestures.Gesture"/> instance.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Gestures.Gesture.IdleTriggered">
+            <summary>
+            Raised whenever the state-machine of this <see cref="T:Microsoft.Gestures.Gesture"/> is reset (i.e., its state reaches the <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/>). This happens either when the 
+            <see cref="T:Microsoft.Gestures.Gesture"/> is successfully triggered or when the state-machine starts advancing along a triggering path but the <see cref="T:Microsoft.Gestures.Gesture"/> is not executed to completion
+            and the path is abandoned (a triggering path is a series of <see cref="T:Microsoft.Gestures.HandPose"/>s and <see cref="T:Microsoft.Gestures.HandMotion"/>s which the user is required to execute in order to trigger
+            the detection of a <see cref="T:Microsoft.Gestures.Gesture"/>).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.Gesture.Item(Microsoft.Gestures.GestureSegment)">
+            <summary>
+            Returns all the consecutive states (<see cref="T:Microsoft.Gestures.GestureSegment"/>s) which <paramref name="gestureSegment"/> is pointing at in the state-machine.
+            </summary>
+            <param name="gestureSegment">A state in this <see cref="T:Microsoft.Gestures.Gesture"/> instance state-machine, one of <see cref="P:Microsoft.Gestures.Gesture.Segments"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Gestures.Gesture.Item(System.String)">
+            <summary>
+            Returns the state (<see cref="T:Microsoft.Gestures.GestureSegment"/>) in the state-machine whose name is <paramref name="gestureSegmentName"/>.
+            </summary>
+            <param name="gestureSegmentName">The name of the desired <see cref="T:Microsoft.Gestures.GestureSegment"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.#ctor">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.Gesture"/> with an empty state-machine. In order to represent a meaningful gesture, a sequence of <see cref="T:Microsoft.Gestures.HandPose"/> and\or 
+            <see cref="T:Microsoft.Gestures.HandMotion"/> objects would have to be manually added to the <see cref="T:Microsoft.Gestures.Gesture"/> instance (for example, by using the 
+            <see cref="M:Microsoft.Gestures.Gesture.AddTriggeringPath(Microsoft.Gestures.GestureSegment[])"/> method).
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.Gesture"/> called <paramref name="name"/>.
+            </summary>
+            <param name="name">The name assigned to the new <see cref="T:Microsoft.Gestures.Gesture"/> instance. This <see cref="T:System.String"/> will serve as a unique identifier for this <see cref="T:Microsoft.Gestures.Gesture"/> instance in the
+            Gestures Service debugging interface.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.#ctor(System.String,Microsoft.Gestures.GestureSegment[])">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.Gesture"/> called <paramref name="name"/> whose state machine is described by the given <paramref name="triggeringPath"/>
+            </summary>
+            <param name="name">The name assigned to the new <see cref="T:Microsoft.Gestures.Gesture"/></param>
+            <param name="triggeringPath">A comma separated list of <see cref="T:Microsoft.Gestures.GestureSegment"/> objects, describing a sequence of states which upon detection will trigger this 
+            <see cref="T:Microsoft.Gestures.Gesture"/> instance. The <paramref name="triggeringPath"/> need not start or end with references to <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> (they will be added implicitly by the 
+            constructor).</param>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.#ctor(Microsoft.Gestures.GestureSegment[])">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.Gesture"/> whose state machine is described by the given <paramref name="triggeringPath"/>.
+            </summary>
+            <param name="triggeringPath">A comma separated list of <see cref="T:Microsoft.Gestures.GestureSegment"/> objects, describing a sequence of states which upon detection will trigger this 
+            <see cref="T:Microsoft.Gestures.Gesture"/> instance. The <paramref name="triggeringPath"/> need not start or end with references to <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> (they will be added implicitly by the 
+            constructor).</param>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.AddTriggeringPath(Microsoft.Gestures.GestureSegment[])">
+            <summary>
+            Adds a new triggering path (a triggering path is a series of <see cref="T:Microsoft.Gestures.HandPose"/>s and <see cref="T:Microsoft.Gestures.HandMotion"/>s which the user is required to execute in order to trigger
+            the detection of the <see cref="T:Microsoft.Gestures.Gesture"/>), described by <paramref name="segments"/>, to the state-machine associated with this <see cref="T:Microsoft.Gestures.Gesture"/>.
+            </summary>
+            <param name="segments">A comma separated list of <see cref="T:Microsoft.Gestures.GestureSegment"/> objects, describing a sequence of states which upon detection will trigger this 
+            <see cref="T:Microsoft.Gestures.Gesture"/> instance. <paramref name="segments"/> need not start or end with references to <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> (they will be added implicitly by the 
+            constructor).</param>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.AddTriggeringPath(System.Collections.Generic.IEnumerable{Microsoft.Gestures.GestureSegment})">
+            <summary>
+            Adds a new triggering path (a triggering path is a series of <see cref="T:Microsoft.Gestures.HandPose"/>s and <see cref="T:Microsoft.Gestures.HandMotion"/>s which the user is required to execute in order to trigger
+            the detection of a <see cref="T:Microsoft.Gestures.Gesture"/>), described by <paramref name="segments"/>, to the state-machine associated with this <see cref="T:Microsoft.Gestures.Gesture"/>.
+            </summary>
+            <param name="segments">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Microsoft.Gestures.GestureSegment"/> objects, describing a sequence of states which upon detection will trigger this 
+            <see cref="T:Microsoft.Gestures.Gesture"/> instance. <paramref name="segments"/> need not start or end with references to <see cref="P:Microsoft.Gestures.Gesture.IdleGestureSegment"/> (they will be added implicitly by the 
+            constructor).</param>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.AddSubPath(Microsoft.Gestures.GestureSegment[])">
+            <summary>
+            Adds a new path to the state-machine associated with this <see cref="T:Microsoft.Gestures.Gesture"/>. Any edges on this path which previously existed in this <see cref="T:Microsoft.Gestures.Gesture"/> will be ignored.
+            Note that adding a new path to the state-machine graph may induce new triggering paths (a triggering path is a series of <see cref="T:Microsoft.Gestures.HandPose"/>s and <see cref="T:Microsoft.Gestures.HandMotion"/>s
+            which the user is required to execute in order to trigger the detection of the <see cref="T:Microsoft.Gestures.Gesture"/>).
+            </summary>
+            <param name="segments">A comma separated list of <see cref="T:Microsoft.Gestures.GestureSegment"/> objects, describing a sequence of states which is to be added to the state-machine associated with this
+            <see cref="T:Microsoft.Gestures.Gesture"/> instance.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.ValidateInternal">
+            <summary>
+            A gesture is valid iff:
+              * All segments are valid
+              * Starts at IdleGestureSegment
+              * Ends at IdleGestureSegment
+              * All GestureSegments form a connected graph
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.Equivalent(Microsoft.Gestures.GestureSegment)">
+            <summary>
+            Performs a deep comparison with <paramref name="other"/>.
+            </summary>
+            <param name="other">The other <see cref="T:Microsoft.Gestures.GestureSegment"/> to compare this <see cref="T:Microsoft.Gestures.Gesture"/> with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.Equivalent(Microsoft.Gestures.Gesture)">
+            <summary>
+            Performs a deep comparison with <paramref name="other"/>.
+            </summary>
+            <param name="other">The other <see cref="T:Microsoft.Gestures.Gesture"/> to compare this <see cref="T:Microsoft.Gestures.Gesture"/> with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Gestures.Gesture.Clone(System.String)">
+            <summary>
+            Returns a deep clone of this <see cref="T:Microsoft.Gestures.Gesture"/>.
+            </summary>
+            <param name="newName">The name of the cloned <see cref="T:Microsoft.Gestures.Gesture"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Gestures.GestureSegmentConnections">
+            <summary>
+            Represents the list of all possible transitions (<see cref="T:Microsoft.Gestures.SegmentConnections"/>) in a given <see cref="T:Microsoft.Gestures.Gesture"/> instance's state-machine.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.GestureSegmentConnections.Item(Microsoft.Gestures.GestureSegment)">
+            <summary>
+            Lists all the <see cref="T:Microsoft.Gestures.GestureSegment"/>s that are possible consequent states of <paramref name="gestureSegment"/> in the containing <see cref="T:Microsoft.Gestures.Gesture"/> object.
+            </summary>
+            <param name="gestureSegment">The <see cref="T:Microsoft.Gestures.GestureSegment"/> whose descendant states are queried.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> listing all the possible consequent states of <paramref name="gestureSegment"/> in the containing <see cref="T:Microsoft.Gestures.Gesture"/> 
+            object.</returns>
+        </member>
+        <member name="M:Microsoft.Gestures.GestureSegmentConnections.#ctor">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.GestureSegmentConnections"/> instance, not associated with any <see cref="T:Microsoft.Gestures.Gesture"/> and not holding information regarding any 
+            <see cref="T:Microsoft.Gestures.SegmentConnections"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.GestureSegmentConnections.#ctor(Microsoft.Gestures.Gesture)">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.GestureSegmentConnections"/> instance and associates it with <paramref name="containingGesture"/>.
+            </summary>
+            <param name="containingGesture">The <see cref="T:Microsoft.Gestures.Gesture"/> object this <see cref="T:Microsoft.Gestures.GestureSegmentConnections"/> instance will be associated with.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.GestureSegmentConnections.ToString">
+            <summary>
+            Returns a string description of all the <see cref="T:Microsoft.Gestures.SegmentConnections"/> stored in this instance.
+            </summary>
+            <returns>A string description of all the <see cref="T:Microsoft.Gestures.SegmentConnections"/> stored in this instance.</returns>
+        </member>
+        <member name="T:Microsoft.Gestures.SegmentConnections">
+            <summary>
+            Represents a set of possible state transitions (outgoing edges) for a single <see cref="T:Microsoft.Gestures.GestureSegment"/> (either <see cref="T:Microsoft.Gestures.HandPose"/> or <see cref="T:Microsoft.Gestures.HandMotion"/>) of a given 
+            <see cref="T:Microsoft.Gestures.Gesture"/> object's state-machine.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.SegmentConnections.#ctor">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.SegmentConnections"/> instance, not associated with any <see cref="T:Microsoft.Gestures.GestureSegment"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.SegmentConnections.#ctor(Microsoft.Gestures.GestureSegment,System.Collections.Generic.IEnumerable{Microsoft.Gestures.GestureSegment})">
+            <summary>
+            Creates a <see cref="T:Microsoft.Gestures.SegmentConnections"/> instance representing all transitions where <paramref name="from"/> is the origin state and <paramref name="to"/> are the 
+            destination states.
+            </summary>
+            <param name="from">The origin state.</param>
+            <param name="to">An enumeration of the destination states.</param>
+        </member>
+        <member name="P:Microsoft.Gestures.SegmentConnections.From">
+            <summary>
+            The origin state associated with this <see cref="T:Microsoft.Gestures.SegmentConnections"/> instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.SegmentConnections.To">
+            <summary>
+            A list of the destination states associated with this <see cref="T:Microsoft.Gestures.SegmentConnections"/> instance.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.SegmentConnections.ToString">
+            <summary>
+            Returns a string description of the state transitions represented by this <see cref="T:Microsoft.Gestures.SegmentConnections"/> instance.
+            </summary>
+            <returns>A string description of the state transitions represented by this <see cref="T:Microsoft.Gestures.SegmentConnections"/> instance.</returns>
+        </member>
+        <member name="T:Microsoft.Gestures.FingersRelation`1">
+            <summary>
+            An abstract class representing a constraint dealing with the relation between different fingers.
+            </summary>
+            
+            <remarks>
+            
+            <para>
+            Child classes of <see cref="T:Microsoft.Gestures.FingersRelation`1"/> are used to define constraints describing the relative positioning of fingers (e.g., "the index and middle fingers are 
+            above the thumb finger") - see <seealso cref="T:Microsoft.Gestures.FingertipPlacementRelation"/>, or the distance between fingers (e.g., "the thumb finger is touching the middle and ring fingers") - see
+            <seealso cref="T:Microsoft.Gestures.FingertipDistanceRelation"/>.
+            </para>
+            
+            <para>A <see cref="T:Microsoft.Gestures.FingersRelation`1"/> constraint describes the relation between two sets of fingers, one which is specified by <see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> and the other which
+            is specified by <see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/>. For example, the following combination of contexts can represent the "index and middle fingers are above the thumb finger" constraint:</para>
+            
+            <list type="bullets">
+            <item><description><see cref="P:Microsoft.Gestures.FingersRelation`1.Context"/> - <see cref="T:Microsoft.Gestures.AllFingersContext"/> instantiated using <see cref="M:Microsoft.Gestures.AllFingersContext.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Gestures.Finger})"/>
+            with an input array of <see cref="F:Microsoft.Gestures.Finger.Index"/> and <see cref="F:Microsoft.Gestures.Finger.Middle"/>.</description></item>
+            <item><description><see cref="P:Microsoft.Gestures.FingersRelation`1.OtherContext"/> - <see cref="T:Microsoft.Gestures.SingleFingerContext"/> instantiated using <see cref="M:Microsoft.Gestures.SingleFingerContext.#ctor(Microsoft.Gestures.Finger)"/> with <see cref="F:Microsoft.Gestures.Finger.Thumb"/> for an 
+            input.</description></item>
+            </list>
+            
+            <para>The following snippet illustrates how the above mentioned constraint is defined in code:</para>
+            <code>
+            var indexAndMiddleAboveThumb = new FingertipPlacementRelation(new[] {Finger.Index, Finger.Middle}, RelativePlacement.Above, Finger.Thumb); // define the constraint
+            var myPose = new HandPose("MyPose");
+            myPose.PoseConstraints.Add(indexAndMiddleAboveThumb); // add the constraint to a pose
+            </code>
+            
+            </remarks>
+            
+            <typeparam name="TRelationEnum">The relation type this class is concerned with. This would be <see cref="T:Microsoft.Gestures.RelativePlacement"/> in the case of a 
+            <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/> child class and <see cref="T:Microsoft.Gestures.RelativeDistance"/> in the case of a <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> child class.</typeparam>
+        </member>
+        <member name="P:Microsoft.Gestures.FingersRelation`1.Context">
+            <summary>
+            The first set of fingers participating in this <see cref="T:Microsoft.Gestures.FingersRelation`1"/> constraint.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.FingersRelation`1.OtherContext">
+            <summary>
+            The second set of fingers participating in this <see cref="T:Microsoft.Gestures.FingersRelation`1"/> constraint.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.FingersRelation`1.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Gestures.FingersRelation`1"/> instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Gestures.FingersRelation`1"/> instance.</returns>
+        </member>
+        <member name="T:Microsoft.Gestures.PalmPose">
+            <summary>
+            Represents a constraint for the pose of the palm, describing its orientation in space and which hand its associated with.
+            </summary>
+            
+            <remarks>
+            
+            <para>
+            The information contained in a <see cref="T:Microsoft.Gestures.PalmPose"/> constraint describes the following aspects of the palm:
+            <list type="bullets">
+            <item><description>
+            <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/> - which hand the palm is associated with. For example, the right hand palm would use a <see cref="T:Microsoft.Gestures.SingleHandContext"/> constructed
+            using the <see cref="F:Microsoft.Gestures.Hand.RightHand"/> (for further information about hand contexts, see <seealso cref="T:Microsoft.Gestures.HandContext"/>).
+            </description></item>
+            <item><description>
+            <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> - the direction perpendicular to the palm's face plane.
+            </description></item>
+            <item><description>
+            <see cref="P:Microsoft.Gestures.PalmPose.Orientation"/> - the direction that would be aligned with the middle finger had it been stretched out.
+            </description></item>
+            </list>
+            </para>
+            
+            <para>
+            Together, these three properties fix the pose of the palm in an accurate manner. For example, to following configuration of a <see cref="T:Microsoft.Gestures.PalmPose"/> can be used as a constraint
+            for a "stop-sign"  <see cref="T:Microsoft.Gestures.HandPose"/>: a <see cref="T:Microsoft.Gestures.SingleHandContext"/> which is associated with the <see cref="F:Microsoft.Gestures.Hand.RightHand"/>, a 
+            <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> which is facing <see cref="F:Microsoft.Gestures.PoseDirection.Forward"/> and an <see cref="P:Microsoft.Gestures.PalmPose.Orientation"/> which is facing <see cref="F:Microsoft.Gestures.PoseDirection.Up"/>.
+            </para>
+            
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Gestures.PalmPose.Orientation">
+            <summary>
+            The direction that would be aligned with the middle finger had it been stretched out.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.PalmPose.#ctor">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.PalmPose"/> instance. In order to obtain a meaningful constraint, the values of <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/>, 
+            <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> and\or <see cref="P:Microsoft.Gestures.PalmPose.Orientation"/> would have to be set manually.
+            <see cref="F:Microsoft.Gestures.PoseDirection.Undefined"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.PalmPose.#ctor(Microsoft.Gestures.HandContext,Microsoft.Gestures.PoseDirection,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Gestures.PalmPose"/> constraint describing the palm pose of the hand(s) mentioned in <paramref name="handContext"/>.
+            </summary>
+            <param name="handContext">Specifies which <see cref="T:Microsoft.Gestures.HandContext"/> will be used to create the new <see cref="T:Microsoft.Gestures.PalmPose"/>
+            <para>Note: At this point left hands are not supported, avoid instantiating <see cref="T:Microsoft.Gestures.HandContext"/> objects with a <see cref="F:Microsoft.Gestures.Hand.LeftHand"/>.</para>
+            </param>
+            <param name="direction">The direction perpendicular the palm's face plane.</param>
+            <param name="orientation">The direction that would be aligned with the middle finger had it been stretched out.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.PalmPose.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> describing this <see cref="T:Microsoft.Gestures.PalmPose"/>.
+            </summary>
+            <returns>A <see cref="T:System.String"/> describing this <see cref="T:Microsoft.Gestures.PalmPose"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Gestures.PalmPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.HandContext,Microsoft.Gestures.PoseDirection,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Adds a new <see cref="T:Microsoft.Gestures.PalmPose"/> described by the input <paramref name="handContext"/>, <paramref name="direction"/> and <paramref name="orientation"/> to an existing
+            collection <paramref name="poseConstraints"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.PalmPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            handPose.PoseConstraints.Add(new AnyHandContext(), PoseDirection.Forward, PoseDirection.Up);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/>.</param>
+            <param name="handContext">Specifies what <see cref="T:Microsoft.Gestures.HandContext"/> will be used to create the new <see cref="T:Microsoft.Gestures.PalmPose"/>.</param>
+            <param name="direction">Specifies the <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> of the new <see cref="T:Microsoft.Gestures.PalmPose"/>.</param>
+            <param name="orientation">Specifies the <see cref="P:Microsoft.Gestures.PalmPose.Orientation"/> of the new <see cref="T:Microsoft.Gestures.PalmPose"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.PalmPoseListExtension.Add(System.Collections.Generic.ICollection{Microsoft.Gestures.PoseConstraint},Microsoft.Gestures.Hand,Microsoft.Gestures.PoseDirection,Microsoft.Gestures.PoseDirection)">
+            <summary>
+            Adds a new <see cref="T:Microsoft.Gestures.PalmPose"/> described by input <paramref name="hand"/>, <paramref name="direction"/> and <paramref name="orientation"/> to an existing
+            collection <paramref name="poseConstraints"/>.
+            </summary>
+            <remarks>
+            <para>This extension method is a handy way to augment an existing <see cref="T:Microsoft.Gestures.HandPose"/> with a new <see cref="T:Microsoft.Gestures.PalmPose"/> constraint:</para>
+            <code>
+            var handPose = new HandPose("MyPose");
+            handPose.PoseConstraints.Add(Hand.RightHand, PoseDirection.Forward, PoseDirection.Up);
+            </code>
+            </remarks>
+            <param name="poseConstraints">An existing collection of <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects, this will often be <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/>.</param>
+            <param name="hand">Specifies which hand will be used to create the new <see cref="T:Microsoft.Gestures.PalmPose"/>.</param>
+            <param name="direction">Specifies the <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> of the new <see cref="T:Microsoft.Gestures.PalmPose"/>.</param>
+            <param name="orientation">Specifies the <see cref="P:Microsoft.Gestures.PalmPose.Orientation"/> of the new <see cref="T:Microsoft.Gestures.PalmPose"/>.</param>
+        </member>
+        <member name="T:Microsoft.Gestures.HandPartPose`1">
+            <summary>
+            An abstract base class representing the pose of a hand part.
+            </summary>
+            
+            <remarks>
+            
+            <para>
+            Child classes of <see cref="T:Microsoft.Gestures.HandPartPose`1"/> are used to specify constraints describing the state of either the palm (e.g.: "the palm of the right hand is facing forward") - 
+            see <seealso cref="T:Microsoft.Gestures.PalmPose"/>, or the fingers (e.g. "the index, middle, ring and pinky fingers are folded") - see <seealso cref="T:Microsoft.Gestures.FingerPose"/>.
+            </para>
+            
+            <para>
+            Every <see cref="T:Microsoft.Gestures.HandPartPose`1"/> has a <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/> associated with it. The <see cref="P:Microsoft.Gestures.HandPartPose`1.Context"/> specifies which concrete parts of the hand an instance of
+            <see cref="T:Microsoft.Gestures.HandPartPose`1"/> relates to. For example, when dealing with a <see cref="T:Microsoft.Gestures.PalmPose"/> constraint, a <see cref="T:Microsoft.Gestures.SingleHandContext"/> context instantiated using the 
+            <see cref="M:Microsoft.Gestures.SingleHandContext.#ctor(Microsoft.Gestures.Hand)"/> constructor with a <see cref="F:Microsoft.Gestures.Hand.RightHand"/> input argument would indicate that the <see cref="T:Microsoft.Gestures.PalmPose"/> constraint relates to the right hand. 
+            Similarly, when dealing with a <see cref="T:Microsoft.Gestures.FingerPose"/> constraint, a <see cref="T:Microsoft.Gestures.SingleFingerContext"/> context instantiated using the <see cref="M:Microsoft.Gestures.SingleFingerContext.#ctor(Microsoft.Gestures.Finger)"/> constructor 
+            with <see cref="F:Microsoft.Gestures.Finger.Pinky"/> input argument would indicate that the <see cref="T:Microsoft.Gestures.FingerPose"/> constraint relates to the pinky finger. To learn more about the various available types of 
+            hand and fingers contexts, please refer to <seealso cref="T:Microsoft.Gestures.FingersContext"/> and <seealso cref="T:Microsoft.Gestures.HandContext"/>.
+            </para>
+            
+            <para>
+            The <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/> property describes the direction at which the hand part is pointing at. When dealing with a <see cref="T:Microsoft.Gestures.PalmPose"/> constraint, the <see cref="P:Microsoft.Gestures.HandPartPose`1.Direction"/>
+            refers to the palm normal (the direction perpendicular to the palm) and when dealing with a <see cref="T:Microsoft.Gestures.FingerPose"/>, it refers to the direction of a finger (which is aligned with
+            the distal phalanx of the finger).
+            </para>
+            
+            </remarks>
+            
+            <typeparam name="ContextType">The context which the class is referring to. This is either a <see cref="T:Microsoft.Gestures.HandContext"/> or a <see cref="T:Microsoft.Gestures.FingersContext"/>. A <see cref="T:Microsoft.Gestures.HandContext"/> type 
+            parameter is used in <see cref="T:Microsoft.Gestures.PalmPose"/> to imply this child class represents a constraint relating to one or more hands. A <see cref="T:Microsoft.Gestures.FingersContext"/> type parameter is used in 
+            <see cref="T:Microsoft.Gestures.FingerPose"/> to imply this child class represents a constraint relating to one or more fingers. To learn about the various available types of hand and fingers contexts,
+            please refer to <seealso cref="T:Microsoft.Gestures.FingersContext"/> and <seealso cref="T:Microsoft.Gestures.HandContext"/>.</typeparam>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPartPose`1.Direction">
+            <summary>
+            The direction of this hand part: Either the palm normal in case of a <see cref="T:Microsoft.Gestures.PalmPose"/> or the direction at which the fingers are pointing in case of a <see cref="T:Microsoft.Gestures.FingerPose"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPartPose`1.Context">
+            <summary>
+            Indicates which parts of the hand this constraint refers to: either <see cref="T:Microsoft.Gestures.SingleHandContext"/>, <see cref="T:Microsoft.Gestures.AnyHandContext"/> or <see cref="T:Microsoft.Gestures.AllHandsContext"/> in case for a 
+            <see cref="T:Microsoft.Gestures.PalmPose"/> constraint and either <see cref="T:Microsoft.Gestures.SingleFingerContext"/>, <see cref="T:Microsoft.Gestures.AnyFingerContext"/> or <see cref="T:Microsoft.Gestures.AllFingersContext"/> for a <see cref="T:Microsoft.Gestures.FingerPose"/>
+            constraint.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.HandPartPose`1.ToString">
+            <summary>
+            Returns a string representation of this <see cref="T:Microsoft.Gestures.HandPartPose`1"/> instance.
+            </summary>
+            <returns>A string representation of this <see cref="T:Microsoft.Gestures.HandPartPose`1"/> instance.</returns>
+        </member>
+        <member name="T:Microsoft.Gestures.HandPose">
+             <summary>
+             Represents the pose of a user's hand at a given moment. The <see cref="T:Microsoft.Gestures.HandPose"/> contains a detailed description of the state of the hand's palm and fingers.
+             </summary>
+             
+             <remarks>
+             
+             <para>
+             A <see cref="T:Microsoft.Gestures.HandPose"/> describes a momentary snapshot of the user's hand, including details regarding the state of the palm and the fingers. Unlike a <see cref="T:Microsoft.Gestures.Gesture"/>,
+             whose detection requires the user to execute a certain sequence of <see cref="T:Microsoft.Gestures.HandPose"/>s and <see cref="T:Microsoft.Gestures.HandMotion"/>s over a period of time, detecting a <see cref="T:Microsoft.Gestures.HandPose"/> 
+             requires the user to obtain the appropriate hand posture for a brief moment.
+             </para>
+             
+             <para>
+             A <see cref="T:Microsoft.Gestures.HandPose"/> describes the state of all hand parts from the wrist up. The states of the different hand parts are represented by classes deriving from 
+             <see cref="T:Microsoft.Gestures.PoseConstraint"/> as detailed below.
+             <list type="bullet">
+                 <item>
+                 <description>
+                     The palm state (represented by instances of <see cref="T:Microsoft.Gestures.PalmPose"/>):
+                     <list type="bullet">
+                         <item>
+                         <description>
+                         The palm direction - the direction (see <see cref="T:Microsoft.Gestures.PoseDirection"/> for directions enumeration) perpendicular to the palm plane.
+                         </description>
+                         </item>
+                         <item>
+                         <description>
+                         The palm orientation - the direction (see <see cref="T:Microsoft.Gestures.PoseDirection"/> for directions enumeration) of the middle finger, had it been stretched out.
+                         </description>
+                         </item>
+                     </list>
+                 </description>
+                 </item>
+                 <item>
+                 <description>
+                     The state of the fingers (represented by instances of <see cref="T:Microsoft.Gestures.FingerPose"/>):
+                     <list type="bullet">
+                         <item>
+                         <description>
+                         The finger flexion - describes to what degrees is the finger folded or stretched (see <see cref="T:Microsoft.Gestures.FingerFlexion"/> for flexion states enumeration).
+                         </description>
+                         </item>
+                         <item>
+                         <description>
+                         The finger direction - the direction (see <see cref="T:Microsoft.Gestures.PoseDirection"/> for directions enumeration) at which the finger is pointing.
+                         </description>
+                         </item>
+                     </list>
+                 </description>
+                 </item>
+                 <item>
+                 <description>
+                     The relations between fingers (represented by <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/> and <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/>):
+                     <list type="bullet">
+                         <item>
+                         <description>
+                         Distance between fingers - the degree to which fingers are touching or not touching (see <see cref="T:Microsoft.Gestures.RelativeDistance"/> for relative-distance states enumeration).
+                         </description>
+                         </item>
+                         <item>
+                         <description>
+                         Relative placement of fingers - how fingers are positioned relatively to each other (see <see cref="T:Microsoft.Gestures.RelativePlacement"/> for relative-placement states enumeration).
+                         </description>
+                         </item>
+                     </list>
+                 </description>
+                 </item>
+             </list>
+             </para>
+             
+             Note that it is mandatory for a given <see cref="T:Microsoft.Gestures.HandPose"/> to contain at least one type of <see cref="T:Microsoft.Gestures.PoseConstraint"/>. A meaningful <see cref="T:Microsoft.Gestures.HandPose"/> instance will usually 
+             contain a single <see cref="T:Microsoft.Gestures.PalmPose"/> constraint and at least a single <see cref="T:Microsoft.Gestures.PoseConstraint"/> concerning the fingers.
+            
+             <para>
+             A <see cref="T:Microsoft.Gestures.HandPose"/> instance is mutable until the <see cref="T:Microsoft.Gestures.Gesture"/> object containing it is registered with the gestures runtime, at which point the <see cref="T:Microsoft.Gestures.HandPose"/> 
+             becomes frozen and cannot be modified any longer.
+             </para>
+             
+             <para>
+             Note that currently only right hand <see cref="T:Microsoft.Gestures.PalmPose"/> constraints are detected in run-time. Use either <see cref="T:Microsoft.Gestures.AnyHandContext"/> or <see cref="T:Microsoft.Gestures.SingleHandContext"/> created 
+             with a <see cref="F:Microsoft.Gestures.Hand.RightHand"/> when specifying the <see cref="P:Microsoft.Gestures.HandPose.PalmPose"/>.
+             </para>
+             
+             </remarks>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPose.PalmPose">
+            <summary>
+            A collection of <see cref="P:Microsoft.Gestures.HandPose.PalmPose"/>s describing the palm pose, namely - its direction and orientation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPose.FingerPoses">
+            <summary>
+            A collection of <see cref="T:Microsoft.Gestures.FingerPose"/>s describing the state of the fingers, namely - their flexion and direction.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPose.FingertipDistanceRelations">
+            <summary>
+            A collection of <see cref="T:Microsoft.Gestures.FingertipDistanceRelation"/>s describing the relative distance between pairs of fingers, namely - are they touching or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPose.FingertipPlacementRelations">
+            <summary>
+            A collection of <see cref="T:Microsoft.Gestures.FingertipPlacementRelation"/>s describing the relative placement between pairs of fingers, namely - is one finger below\behind\etc. the other finger.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPose.PoseConstraints">
+            <summary>
+            A list of all the <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects which are associated with this <see cref="T:Microsoft.Gestures.HandPose"/> instance.
+            Concrete types of <see cref="T:Microsoft.Gestures.PoseConstraint"/>: <seealso cref="P:Microsoft.Gestures.HandPose.PalmPose"/>, <seealso cref="T:Microsoft.Gestures.FingerPose"/>, <seealso cref="T:Microsoft.Gestures.FingertipDistanceRelation"/>, 
+            <seealso cref="T:Microsoft.Gestures.FingertipPlacementRelation"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.HandPose.#ctor">
+            <summary>
+            Creates a blank <see cref="T:Microsoft.Gestures.HandPose"/> instance. In order to obtain a meaningful <see cref="T:Microsoft.Gestures.HandPose"/>, <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects would have to be 
+            added  manually to the <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> list.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.HandPose.#ctor(System.String,Microsoft.Gestures.PoseConstraint[])">
+            <summary>
+            Creates a <see cref="T:Microsoft.Gestures.HandPose"/> instance whose name is <paramref name="name"/> and adds all the <paramref name="constraints"/> to its <see cref="P:Microsoft.Gestures.HandPose.PoseConstraints"/> list.
+            </summary>
+            <param name="name">The desired name for the new <see cref="T:Microsoft.Gestures.HandPose"/> instance. This <see cref="T:System.String"/> will serve as a unique identifier for this <see cref="T:Microsoft.Gestures.HandPose"/> instance in the
+            Gestures Service debugging interface.</param>
+            <param name="constraints">A comma separated list of the <see cref="T:Microsoft.Gestures.PoseConstraint"/> objects which will make up the new <see cref="T:Microsoft.Gestures.HandPose"/>.</param>
+        </member>
+        <member name="M:Microsoft.Gestures.HandPose.Equivalent(Microsoft.Gestures.GestureSegment)">
+            <summary>
+            Executes a deep comparison of this <see cref="T:Microsoft.Gestures.HandPose"/> instance with <paramref name="other"/>.
+            </summary>
+            <param name="other">The other <see cref="T:Microsoft.Gestures.GestureSegment"/> to compare this <see cref="T:Microsoft.Gestures.HandPose"/> to.</param>
+            <returns>True if this instance is equivalent to <paramref name="other"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Gestures.HandPose.Equivalent(Microsoft.Gestures.HandPose)">
+            <summary>
+            Executes a deep comparison of this <see cref="T:Microsoft.Gestures.HandPose"/> instance with <paramref name="other"/>.
+            </summary>
+            <param name="other">The other <see cref="T:Microsoft.Gestures.HandPose"/> object to compare this <see cref="T:Microsoft.Gestures.HandPose"/> to.</param>
+            <returns>True if this instance is equivalent to <paramref name="other"/>.</returns>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPartMotion`1.Speed">
+            <summary> [Disabled feature - reserved for future use] Specifies the speed with which this <see cref="T:Microsoft.Gestures.HandPartMotion`1"/> should be executed </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.HandPartMotion`1.Size">
+            <summary> [Disabled feature - reserved for future use] Specifies the distance which this <see cref="T:Microsoft.Gestures.HandPartMotion`1"/> should span </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Gestures.Endpoint</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Gestures.Endpoint.EndpointStatus">
+            <summary>
+            Enumeration specifying the various statuses/states of the gestures service the 
+            end point is bound to.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Endpoint.EndpointStatus.Disconnected">
+            <summary>
+            The gesture service is disconnected from the endpoint (from transport/remoting point of view)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Endpoint.EndpointStatus.Connected">
+            <summary>
+            The gesture service is connected to the endpoint (from transport/remoting point of view)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Gestures.Endpoint.EndpointStatus.Detecting">
+            <summary>
+            The gestures service is Connected AND gestures are being detected
+            </summary>
+        </member>
+        <member name="P:Microsoft.Gestures.Endpoint.GesturesServiceEndpoint.DelayBetweenRetries">
+            <summary>
+            Delay between re-connection retries in milliseconds
+            </summary>
+        </member>
+        <member name="M:Microsoft.Gestures.Endpoint.GesturesServiceEndpoint.RegisterGesture(Microsoft.Gestures.Gesture,System.Boolean)">
+            <summary>
+            Registers a given gesture into the gestures (detection) service
+            </summary>
+            <param name="gesture">The gesture to be registered</param>
+            <param name="isGlobal"><para>Indication if to to register the gesture globally or not</para> 
+            <para>By global registration, we mean this gesture will be detected even it was initiated not by this application or if the this application isn't in focus</para></param>
+            <returns>Task controlling the completion of this API call</returns>
+        </member>
+    </members>
+</doc>
